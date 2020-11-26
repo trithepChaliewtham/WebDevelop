@@ -1,0 +1,253 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+     
+        padding: 1;
+        margin: 1;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    }
+
+    body{
+        background-color: blanchedalmond;
+        background-image: url('https://i.pinimg.com/originals/79/27/f9/7927f976b17065d627f94c0e125ac79c.jpg');
+    }
+
+    .flexbox1 {
+        display: flex;
+        width: 100%;
+        box-sizing: border-box;
+
+    }
+   
+    .item1 {
+        display: block;
+        box-sizing: border-box;
+        width: 20%;
+    }
+
+    .content1{
+        text-align: center;
+        border: 2px solid black;
+        background-color: gold;
+    }
+
+    .item2{
+        display: block;
+        box-sizing: border-box;
+        width: 60%;
+    }
+    .content1 > button{
+        margin-top:0.5rem;
+        padding:2;
+        padding-top:0.25rem;
+        margin-left:1rem;
+        margin-bottom: 0.15rem;
+    }
+    .content2{
+        text-align: center;
+        margin-left:0.5rem;
+        margin-right:0.5rem;
+
+        border: 2px solid black;
+        background-color: skyblue;
+        padding:10;
+    }
+
+    .content2 > form > input{
+        font-style: italic;
+        margin-left:0.25rem;
+    }
+    .content2 > * {
+        font-style: italic;
+        margin-left:0.25rem;
+    }
+    .content2 > button{
+        margin-left: 1rem;
+        margin-top:0.75rem;
+    }
+    .content2 > div{
+        margin-left:8.5rem;
+    }
+
+    .item3 {
+        display: block;
+        box-sizing: border-box;
+        
+        width: 20%;
+    }
+
+    .content3{
+        
+        text-align: center;
+        border: 2px solid black;
+        
+        background-color:lightgray;
+    }
+    .content3 > iframe{
+        width:100%;
+    }
+
+    
+    .flexbox2 {
+        display: flex;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: -34.25rem;
+        
+    }
+   
+    .itemflexbox2 {
+        display: block;
+        box-sizing: border-box;
+        width: 80%;
+        
+    }
+
+    .contentflexbox1{
+        text-align: center;
+        border: 2px solid black;
+        background-color: lightpink;
+        background-image: url('https://cdn.cjr.org/wp-content/uploads/2019/07/AdobeStock_100000042-e1563305717660-686x371.jpeg');
+        
+        margin-right:0.5rem;
+    }
+    .contentflexbox1 > iframe{
+        width: 90%;
+    }
+    
+
+</style>
+
+<body id="body" >
+    <div class="flexbox1">
+        <div class="item1">
+            <div id="content1" class="content1">
+                <h3>ปุ่มเปลี่ยนสีพื้นหลังกรอบทางขวา</h3>
+                <button onclick="changetored()">สีแดง</button><br/>
+                <button onclick="changetowhite()">สีขาว</button><br/>
+                <button onclick="changetolightgray()">สีฟ้าอ่อน</button><br/>
+                <button onclick="clearcolor()">เปลี่ยนกลับเป็นสีเริ่มต้น</button><br/>
+            </div>
+           
+        </div>
+        <div class="item2">
+            <div id="content2" class="content2">
+                <form>
+                User: <input id="user" type="text" required placeholder="ชื่อผูใช้งาน"><br/>
+                Password: <input name='password' type="password" required placeholder="รหัสผู้ใช้งาน"><br/>
+
+                <select style="margin-left:5rem;">
+                    <option>วิทยการข้อมูล</option>
+                    <option>วิทยการข้อมูล2</option>
+                    <option>วิทยการข้อมูล3</option>
+                </select><br/>
+                Login as: <input type="radio" name='admin' > Admin <input type="radio" name='admin'> Customer 
+                </form>
+                ชื่อย่อยสาขา : <input id="text" type="text" placeholder="ชื่อย่อยสาขา" style="margin-left:0.25rem;">
+                <br/>
+                <div id="showtexts"></div>
+                <button type="submit" style="margin-left:6rem;" onclick="showtext()">Submit</button>
+                <button type="button" onclick="cleartext()">Clear text</button>
+            </div>
+           
+        </div>
+        <div class="item3">
+            <div class="content3">
+                <iframe src="image.html" style="height: 715px;"></iframe>
+            </div>
+        </div>
+        
+        </div>
+    </div>
+    <div class="flexbox2">
+        <div class="itemflexbox2">
+            <div class="contentflexbox1">
+                <iframe src="index.html" style="height: 525px;"></iframe>
+            </div>
+        </div>
+    </div>
+    <script>
+        function changetored(){
+            document.getElementById("content2").style.backgroundColor = "red"
+        }
+        function changetowhite(){
+            document.getElementById("content2").style.backgroundColor = "white"
+        }
+        function changetolightgray(){
+            document.getElementById("content2").style.backgroundColor = "lightgray"
+        }
+        function clearcolor(){
+            document.getElementById("content2").style.backgroundColor = "skyblue"
+        }
+        function showtext(){
+            let text = document.getElementById("text")
+            let showtexts = document.getElementById("showtexts")
+            let childs = parent[0].document.getElementById('showchild')
+            let user = String(document.getElementById('user').value)
+            childs.innerHTML = user
+            if (text.value == 'cs' || text.value == 'CS' ){
+                let detail = "<b>This is ComsciUBU do you know the way?<b>"
+                let childsbody = parent[0].document.getElementById('first-line-body')
+
+                childsbody.innerHTML += detail
+                
+                return showtexts.innerHTML = "Welcome to ComsciUBU"
+            }
+            else if(text.value == 'it' || text.value == 'IT'){
+                let detail = "This is ITubu do you know the way?"
+                let childsbody = parent[0].document.getElementById('first-line-body')
+
+                childsbody.innerHTML += detail
+                return showtexts.innerHTML = "Welcome to IT"
+            }
+            else if(text.value == 'dssi' || text.value == 'DSSI'){
+                let detail = "This is dssiUBU do you know the way?"
+                let childsbody = parent[0].document.getElementById('first-line-body')
+
+                childsbody.innerHTML += detail
+                return showtexts.innerHTML = "Welcome to DSSI"
+            }
+            else if(text.value == 'bio' || text.value == 'BIO'){
+                let detail = "This is BiolabUBU do you know the way?"
+                let childsbody = parent[0].document.getElementById('first-line-body')
+
+                childsbody.innerHTML += detail
+                return showtexts.innerHTML = "Welcome to Biolab"
+            }
+            else if(text.value == 'chem' || text.value == 'CHEM'){
+                let detail = "This is ChemistryUBU do you know the way?"
+                let childsbody = parent[0].document.getElementById('first-line-body')
+
+                childsbody.innerHTML += detail
+                return showtexts.innerHTML = "Welcome to chemistry"
+            }
+            else if(text.value == 'phy' || text.value == 'PHY'){
+                let detail = "This is PhysicUBU do you know the way?"
+                let childsbody = parent[0].document.getElementById('first-line-body')
+
+                childsbody.innerHTML += detail
+                return showtexts.innerHTML = "Welcome to physic"
+            }
+
+            else{
+                return showtexts.innerHTML = "Subject Not Found"
+            }
+            
+        }
+        function cleartext(){
+            let showtexts = document.getElementById("showtexts")
+            let childs = parent[0].document.getElementById('showchild')
+            childs.innerHTML = " "
+            return showtexts.innerHTML = " "
+        }
+    </script>
+</body>
+
+</html>
